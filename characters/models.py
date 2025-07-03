@@ -3,25 +3,34 @@ from django.db import models
 class Character(models.Model):
     # Choix pour les classes de personnages
     CLASS_CHOICES = [
-        ('guerrier', 'Guerrier'),
-        ('mage', 'Mage'),
-        ('assassin', 'Assassin'),
-        ('archer', 'Archer'),
-        ('paladin', 'Paladin'),
+        ('Guerrier', 'Guerrier'),
+        ('Mage', 'Mage'),
+        ('Assassin', 'Assassin'),
+        ('Archer', 'Archer'),
+        ('Paladin', 'Paladin'),
     ]
     
-    # Champs essentiels seulement
+    # Champs essentiels
     name = models.CharField(max_length=100, verbose_name="Nom")
     character_class = models.CharField(
         max_length=20, 
         choices=CLASS_CHOICES, 
         verbose_name="Classe"
     )
-    description = models.TextField(max_length=500, verbose_name="Description")
+    description = models.TextField(
+        max_length=500, 
+        verbose_name="Description courte",
+        help_text="Description affichée sur les cartes (max 500 caractères)"
+    )
+    detailed_description = models.TextField(
+        verbose_name="Description détaillée",
+        help_text="Description complète affichée sur la page du personnage",
+        blank=True
+    )
     image = models.ImageField(
         upload_to='characters/', 
         verbose_name="Image",
-        blank=True,  # Image optionnelle
+        blank=True,
         null=True
     )
     
