@@ -2,7 +2,6 @@ from rest_framework import serializers
 from .models import Character
 
 class CharacterSerializer(serializers.ModelSerializer):
-    # Champ calculé pour l'URL de l'image
     image_url = serializers.SerializerMethodField()
     
     class Meta:

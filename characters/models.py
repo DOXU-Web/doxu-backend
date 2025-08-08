@@ -1,7 +1,6 @@
 from django.db import models
 
 class Character(models.Model):
-    # Choix pour les classes de personnages
     CLASS_CHOICES = [
         ('Guerrier', 'Guerrier'),
         ('Mage', 'Mage'),
@@ -10,7 +9,6 @@ class Character(models.Model):
         ('Paladin', 'Paladin'),
     ]
     
-    # Champs essentiels
     name = models.CharField(max_length=100, verbose_name="Nom")
     character_class = models.CharField(
         max_length=20, 
@@ -34,11 +32,9 @@ class Character(models.Model):
         null=True
     )
     
-    # Champs utiles pour l'organisation
     is_active = models.BooleanField(default=True, verbose_name="Actif")
     order = models.PositiveIntegerField(default=0, verbose_name="Ordre d'affichage")
     
-    # Champs automatiques
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Créé le")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Modifié le")
     
