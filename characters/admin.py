@@ -10,7 +10,7 @@ class CharacterAdmin(admin.ModelAdmin):
     list_filter = ['character_class', 'is_active']
     
     # Barre de recherche
-    search_fields = ['name', 'description', 'detailed_description']
+    search_fields = ['name', 'detailed_description']
     
     # Champs modifiables directement dans la liste
     list_editable = ['is_active', 'order']
@@ -21,7 +21,7 @@ class CharacterAdmin(admin.ModelAdmin):
             'fields': ('name', 'character_class', 'image')
         }),
         ('Descriptions', {
-            'fields': ('description', 'detailed_description'),
+            'fields': ['detailed_description'],
             'description': 'La description courte apparaît sur les cartes, la description détaillée sur la page du personnage.'
         }),
         ('Paramètres', {

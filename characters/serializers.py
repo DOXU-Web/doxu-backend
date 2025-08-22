@@ -37,7 +37,6 @@ class CharacterListSerializer(serializers.ModelSerializer):
             'id', 
             'name', 
             'character_class', 
-            'description', 
             'detailed_description',
             'image_url', 
             'order'

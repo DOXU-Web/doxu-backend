@@ -2,11 +2,9 @@ from django.db import models
 
 class Character(models.Model):
     CLASS_CHOICES = [
-        ('Guerrier', 'Guerrier'),
-        ('Mage', 'Mage'),
-        ('Assassin', 'Assassin'),
-        ('Archer', 'Archer'),
-        ('Paladin', 'Paladin'),
+        ('Rushdown', 'Rushdown'),
+        ('Duo Character', 'Duo Character'),
+        ('Set up', 'Set up'),
     ]
     
     name = models.CharField(max_length=100, verbose_name="Nom")
@@ -15,11 +13,7 @@ class Character(models.Model):
         choices=CLASS_CHOICES, 
         verbose_name="Classe"
     )
-    description = models.TextField(
-        max_length=500, 
-        verbose_name="Description courte",
-        help_text="Description affichée sur les cartes (max 500 caractères)"
-    )
+   
     detailed_description = models.TextField(
         verbose_name="Description détaillée",
         help_text="Description complète affichée sur la page du personnage",
